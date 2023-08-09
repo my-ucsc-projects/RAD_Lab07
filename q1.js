@@ -19,6 +19,7 @@ web.createServer(function (req, res) {
   Q3();
   Q4();
   Q5();
+  question();
 
 }).listen(8080)
 
@@ -80,7 +81,7 @@ function Q5() {
     if (err) {
       return;
     }
-    else{
+    else {
       const jsonData = JSON.parse(data);
       const name = jsonData.name;
       const age = jsonData.age;
@@ -90,5 +91,23 @@ function Q5() {
       console.log('Age:', age);
     }
   });
+
+  function Q6(){
+    const readline = require('readline');
+
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
+
+    rl.question('Enter a string: ', (inputStr) => {
+      const reversedStr = inputStr.split('').reverse().join('');
+      console.log('Reversed string:', reversedStr);
+
+      rl.close();
+    });
+
+  }
+  
 
 }
